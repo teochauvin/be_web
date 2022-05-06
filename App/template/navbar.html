@@ -1,0 +1,36 @@
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="container">
+			<div class="navbar-header">
+				<!-- Button for smallest screens -->
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+				<a class="navbar-brand" href="index"><img src="static/images/logo_r.png" alt="Progressus HTML5 template"></a>
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<li class="active"><a href="index">Home</a></li>
+                    <!-- pas application mais formulaire pour decider quels satellites on veut afficher -->
+					<li><a href="cesium_app">App</a></li>
+					<li><a href="#">Contact</a></li>
+
+						{% if session["login"] and session["statut"] == 0%}
+							<li><a href="admin">Admin Monitoring</a></li>
+						{% endif %}
+
+						{% if session["login"] %}
+							<li><a href="#">{{ session["login"] }}</a></li>
+						{% endif %}
+
+						{% if session["idUser"] %}
+							<li><a class="btn" href="logout">LOGOUT</a></li>
+						{% else %}
+							<li><a class="btn" href="signin">SIGN IN / SIGN UP</a></li>
+						{% endif %}
+
+						
+
+				</ul>
+			</div>
+		</div>
+	</div> 
+	<!-- /.navbar -->
